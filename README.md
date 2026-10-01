@@ -41,4 +41,11 @@ The public static HTML contains questions and answer keys. Audience mode hides h
 
 ## Deployment
 
-GitHub Pages publishes the `main` branch `/docs` folder. `.nojekyll` bypasses Jekyll. The D1 score service is deployed separately through Sites; its existing score table is preserved and a new `party_sessions` table stores the shared session.
+GitHub Pages publishes the `main` branch `/docs` folder. `.nojekyll` bypasses Jekyll. The independent backend checkout is `sync-service/` (excluded from the GitHub frontend repository). The D1 score service is deployed separately through Sites; its existing score table is preserved and a new `party_sessions` table stores the shared session.
+
+## Verification
+
+- GitHub Pages publication status: built.
+- Production public API and GitHub-origin CORS read: confirmed.
+- Local service integration: authenticated write, separate viewer read, idempotent retry, stale revision rejection, unauthorized write rejection, and fixture restoration passed.
+- Production host-write verification requires the current host PIN; the previously supplied PIN has changed and the secret is not readable through Sites.
